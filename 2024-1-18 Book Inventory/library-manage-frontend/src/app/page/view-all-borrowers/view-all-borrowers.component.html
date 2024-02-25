@@ -12,13 +12,37 @@
     </thead>
     <tbody>
       <tr *ngFor="let borrower of borrowerList">
-        <td>#BO{{borrower.id}}</td>
+        <td>#B{{borrower.borrowerId}}</td>
         <td>{{borrower.name}}</td>
         <td>{{borrower.id}}</td>
         <td>{{borrower.address}}</td>
         <td>{{borrower.date}}</td>
+        <td><button (click)="setSelectedBorrower(borrower)" class="btn btn-danger" data-bs-toggle="modal"
+          data-bs-target="#delete"><i class="bi bi-trash3"></i></button></td>
+        <td><button class="btn btn-primary"><i class="bi bi-pencil-square"></i></button></td>
       </tr>
    
     </tbody>
   </table>
 </div>
+
+
+
+  <!-- Modal delete -->
+  <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Do you want to delete borrower ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal" class="btn btn-primary" (click)="deleteBorrower()">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>

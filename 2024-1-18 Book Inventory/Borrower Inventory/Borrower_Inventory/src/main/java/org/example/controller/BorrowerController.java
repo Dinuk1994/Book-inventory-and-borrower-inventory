@@ -5,6 +5,7 @@ import org.example.dto.Borrower;
 import org.example.entity.BorrowerEntity;
 import org.example.service.BorrowerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,8 +29,7 @@ public class BorrowerController {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteByID(@PathVariable Long id){
-        borrowerService.deleteBorrower(id);
-        return "Deleted";
+    public ResponseEntity<String> deleteByID(@PathVariable Long id){
+        return borrowerService.deleteBorrower(id) ? ResponseEntity.ok("Deleted") : ResponseEntity.notFound().build();
     }
 }
