@@ -10,8 +10,9 @@ import lombok.ToString;
 @Data
 @ToString
 public class Borrower {
+    private Long borrowerId;
     private String name;
-    private String id;
+    private String nic;
     private String address;
     private String date;
 }

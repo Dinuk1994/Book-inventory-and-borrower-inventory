@@ -19,7 +19,7 @@ public class BorrowerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long borrowerId;
     private String name;
-    private String id;
+    private String nic;
     private String address;
     private String date;
 }

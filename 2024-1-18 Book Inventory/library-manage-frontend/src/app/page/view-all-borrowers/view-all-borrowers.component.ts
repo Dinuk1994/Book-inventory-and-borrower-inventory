@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-all-borrowers',
@@ -40,6 +41,25 @@ export class ViewAllBorrowersComponent implements OnInit {
         console.log(response)
         this.loadBorrowers();
       })
+      Swal.fire({
+        title: "Deleted!",
+        text: `${this.selectedBorrower.name} is Deleted`,
+        icon: "success"
+      });
+      this.selectedBorrower=null;
+    }
+
+    saveBorrower(){
+      this.http.post('http://localhost:8080/borrower/add',this.selectedBorrower).subscribe((data:any)=>{
+        console.log("saved!");
+        this.loadBorrowers();
+        Swal.fire({
+          title: "Updated Successfully!",
+          text: "You clicked the button!",
+          icon: "success"
+        });
+        this.selectedBorrower=null;
+      });
     }
 
 }

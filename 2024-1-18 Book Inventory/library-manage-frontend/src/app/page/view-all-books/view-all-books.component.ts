@@ -25,7 +25,7 @@ export class ViewAllBooksComponent implements OnInit {
   }
 
   loadBooks() {
-    this.http.get('http://localhost:8080/book/get').subscribe((data: any) => {
+    this.http.get('http://localhost:8081/book/get').subscribe((data: any) => {
       this.bookList = data;
       console.log(this.bookList);
     });
@@ -33,7 +33,7 @@ export class ViewAllBooksComponent implements OnInit {
   }
 
   deleteBook(){
-      this.http.delete(`http://localhost:8080/book/${this.selectedBook.id}`,{responseType :'text'}).subscribe((response: string)=>{
+      this.http.delete(`http://localhost:8081/book/${this.selectedBook.id}`,{responseType :'text'}).subscribe((response: string)=>{
       console.log(response);
       this.loadBooks();
       
@@ -52,7 +52,7 @@ export class ViewAllBooksComponent implements OnInit {
   }
 
   saveBook(){
-    this.http.post('http://localhost:8080/book/add',this.selectedBook).subscribe((data:any)=>{
+    this.http.post('http://localhost:8081/book/add',this.selectedBook).subscribe((data:any)=>{
       console.log("saved!");
       this.loadBooks();
       Swal.fire({
