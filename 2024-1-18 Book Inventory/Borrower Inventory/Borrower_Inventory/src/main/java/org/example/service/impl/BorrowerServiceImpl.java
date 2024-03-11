@@ -1,22 +1,23 @@
 package org.example.service.impl;
 
+import lombok.RequiredArgsConstructor;
 import org.example.dto.Borrower;
 import org.example.entity.BorrowerEntity;
 import org.example.repository.BorrowerRepository;
 import org.example.service.BorrowerService;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class BorrowerServiceImpl implements BorrowerService {
-    @Autowired
-    BorrowerRepository borrowerRepository;
 
-    @Autowired
-    ModelMapper modelMapper;
+   final BorrowerRepository borrowerRepository;
+
+
+    final ModelMapper modelMapper;
     @Override
     public void addBorrower(Borrower borrower) {
         BorrowerEntity entity = modelMapper.map(borrower, BorrowerEntity.class);
@@ -37,4 +38,12 @@ public class BorrowerServiceImpl implements BorrowerService {
       }
         return false;
     }
+
+    @Override
+    public Borrower findByName(String name) {
+        BorrowerEntity entity = borrowerRepository.findByName(name);
+        return modelMapper.map(entity, Borrower.class);
+    }
+
+
 }

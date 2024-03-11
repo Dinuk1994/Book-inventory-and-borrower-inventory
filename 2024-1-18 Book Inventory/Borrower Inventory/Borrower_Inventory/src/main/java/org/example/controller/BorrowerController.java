@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BorrowerController {
 
-     private final BorrowerService borrowerService;
+    private final BorrowerService borrowerService;
 
     @PostMapping("/add")
     public void addBorrower(@RequestBody Borrower borrower){
@@ -32,4 +32,10 @@ public class BorrowerController {
     public ResponseEntity<String> deleteByID(@PathVariable Long id){
         return borrowerService.deleteBorrower(id) ? ResponseEntity.ok("Deleted") : ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/find-by-borrower-name/{name}")
+    public Borrower findByName(@PathVariable String name){
+       return borrowerService.findByName(name);
+    }
+
 }

@@ -12,5 +12,7 @@ public interface BorrowerService {
 
     public boolean deleteBorrower(Long id);
 
+    public Borrower findByName(String name);
+
 }
 

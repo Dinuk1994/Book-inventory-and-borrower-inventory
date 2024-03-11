@@ -6,11 +6,12 @@ import { LoginComponent } from './page/login/login.component';
 import { RegisterComponent } from './page/register/register.component';
 import { ViewAllBorrowersComponent } from './page/view-all-borrowers/view-all-borrowers.component';
 import { AddBorrowerComponent } from './page/add-borrower/add-borrower.component';
+import { UsersComponent } from './page/users/users.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavComponent,ViewAllBooksComponent,LoginComponent,RegisterComponent,ViewAllBorrowersComponent,AddBorrowerComponent],
+  imports: [RouterOutlet,NavComponent,ViewAllBooksComponent,LoginComponent,RegisterComponent,ViewAllBorrowersComponent,AddBorrowerComponent,UsersComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

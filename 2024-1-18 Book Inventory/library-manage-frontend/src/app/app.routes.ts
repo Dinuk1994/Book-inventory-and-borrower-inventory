@@ -4,6 +4,7 @@ import { ViewAllBooksComponent } from './page/view-all-books/view-all-books.comp
 import { RegisterComponent } from './page/register/register.component';
 import { ViewAllBorrowersComponent } from './page/view-all-borrowers/view-all-borrowers.component';
 import { AddBorrowerComponent } from './page/add-borrower/add-borrower.component';
+import { UsersComponent } from './page/users/users.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,10 @@ export const routes: Routes = [
     {
         path : "add-borrower",
         component : AddBorrowerComponent
+    },
+    {
+        path : "app-users",
+        component : UsersComponent
     }
+  
 ];
