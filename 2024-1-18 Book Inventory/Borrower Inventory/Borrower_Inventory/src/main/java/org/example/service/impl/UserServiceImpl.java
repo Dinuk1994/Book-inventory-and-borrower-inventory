@@ -1,6 +1,7 @@
 package org.example.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.example.dto.User;
 import org.example.entity.UserEntity;
 import org.example.repository.UserRepository;
 import org.example.service.UserService;
@@ -20,4 +21,22 @@ public class UserServiceImpl implements UserService {
     public List<UserEntity> getAll() {
        return userRepository.findAll();
     }
+
+    @Override
+    public void addUser(User user) {
+        UserEntity entity = modelMapper.map(user, UserEntity.class);
+        userRepository.save(entity);
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public User findByUserName(String userName) {
+        return modelMapper.map(userRepository.findByUserName(userName), User.class);
+    }
+
+
 }

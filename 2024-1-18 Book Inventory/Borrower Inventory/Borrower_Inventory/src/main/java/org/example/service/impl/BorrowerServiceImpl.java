@@ -15,8 +15,6 @@ import java.util.List;
 public class BorrowerServiceImpl implements BorrowerService {
 
    final BorrowerRepository borrowerRepository;
-
-
     final ModelMapper modelMapper;
     @Override
     public void addBorrower(Borrower borrower) {
@@ -27,7 +25,7 @@ public class BorrowerServiceImpl implements BorrowerService {
 
     @Override
     public List<BorrowerEntity> getBorrower() {
-        return (List<BorrowerEntity>) borrowerRepository.findAll();
+        return  borrowerRepository.findAll();
     }
 
     @Override

@@ -9,22 +9,20 @@
         <th scope="col">User Name</th>
         <th scope="col">Email</th>
         <th scope="col">Address</th>
-        <th scope="col">Address 2</th>
         <th scope="col">Country</th>
         <th scope="col">Number</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1,001</td>
-        <td>random</td>
-        <td>data</td>
-        <td>placeholder</td>
-        <td>text</td>
-        <td>text</td>
-        <td>text</td>
-        <td>text</td>
-        <td>text</td>
+      <tr *ngFor="let user of userList">
+        <td>#US{{user.userId}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.userName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.country}}</td>
+        <td>{{user.number}}</td>
       </tr>
     
     </tbody>
