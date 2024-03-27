@@ -18,7 +18,6 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
 
-
     @GetMapping("/get")
     public List<UserEntity> getAll(){
        return userService.getAll();
@@ -38,6 +37,11 @@ public class UserController {
     @GetMapping("/find-by-user-name/{userName}")
     public User findByUserName(@PathVariable String userName){
         return userService.findByUserName(userName);
+    }
+
+    @GetMapping("/is-exist-user/{userName}")
+    public Boolean isExistsUser(@PathVariable String userName){
+        return userService.isExistsUser(userName);
     }
 
 }
